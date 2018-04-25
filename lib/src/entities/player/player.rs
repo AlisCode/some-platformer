@@ -44,6 +44,7 @@ impl GameEntity for Player {
 				Vector2::new(self.position.x, self.position.y),
 				self.size,
 			))
+			.with(Collider::new())
 			.with(RectDrawable::new(self.color))
 			.with(Moving::new())
 			.with(GravityAffected::new())

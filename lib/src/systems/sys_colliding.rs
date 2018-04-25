@@ -8,8 +8,11 @@ pub struct SysCollide {}
 // A system updating the ncollide position of an item that has both moving and transform components,
 // thus allowing for collision detection with ncollide
 impl<'a> System<'a> for SysCollide {
-	type SystemData = (ReadStorage<'a, Transform>, ReadStorage<'a, Collider>,
-		FetchMut<'a, CollisionHandler>);
+    type SystemData = (
+        ReadStorage<'a, Transform>,
+        ReadStorage<'a, Collider>,
+        FetchMut<'a, CollisionHandler>,
+    );
 
 	// Updates the CollisionHandler based on the transform's position
 	fn run(&mut self, (transform, collider, mut collision_handler): Self::SystemData) {
