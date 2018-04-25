@@ -29,7 +29,7 @@ impl<'a> System<'a> for SysCollide {
 
 		// Handle collisions ?
 		info!("{}",
-			  collision_handler.world.contacts().into_iter().count() > 0
+			  collision_handler.world.contacts().into_iter().count()
 		);
 	}
 }
