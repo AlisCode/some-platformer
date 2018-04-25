@@ -19,7 +19,7 @@ impl<'a> System<'a> for SysCollide {
 				tr.isometry,
 			);
 		}
-
+		
 		collision_handler.world.update();
 	}
 }
