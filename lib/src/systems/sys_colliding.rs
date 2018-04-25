@@ -13,6 +13,7 @@ impl<'a> System<'a> for SysCollide {
 
 	// Updates the CollisionHandler based on the transform's position
 	fn run(&mut self, (transform, collider, mut collision_handler): Self::SystemData) {
+		// Updates the positions of items based on their transform
 		for (tr, col) in (&transform, &collider).join() {
 			collision_handler.world.set_position(
 				col.collision_object_handle,
@@ -20,6 +21,12 @@ impl<'a> System<'a> for SysCollide {
 			);
 		}
 
+		// Computes the collisions
 		collision_handler.world.update();
+
+		// Handle collisions ?
+		info!("{}",
+			  collision_handler.world.contacts().into_iter().count() > 0
+		);
 	}
 }

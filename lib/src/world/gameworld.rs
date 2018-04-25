@@ -41,7 +41,6 @@ impl<'a, 'b> GameWorld<'a, 'b> {
 		// Creates the dispatcher, registering the systems
 		let logic_dispatcher: Dispatcher = DispatcherBuilder::new()
 			.add(sys_moving_gravity, "sys_moving_gravity", &[])
-			// TODO: Add sys_moving_collision
 			.add(sys_moving, "sys_moving", &["sys_moving_gravity"])
 			.add(sys_moving_collide, "sys_moving_colliding", &["sys_moving"])
 			.build();
@@ -54,6 +53,7 @@ impl<'a, 'b> GameWorld<'a, 'b> {
 	}
 
 	pub fn update(&mut self) {
+		// Update the delta time resource
 		{
 			let mut delta_time = self.entity_world.write_resource::<DeltaTime>();
 			delta_time.update();

@@ -13,7 +13,7 @@ use ggez::graphics::{Color, DrawMode, Rect};
 use lib::entities::player::player::Player;
 use lib::sync::message;
 pub use some_platformer_lib as lib;
-use some_platformer_lib::{bytes, futures, tokio};
+use some_platformer_lib::{futures, tokio};
 use some_platformer_lib::Map;
 use some_platformer_lib::sync::codec::Lines;
 use std::{env, path};
